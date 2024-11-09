@@ -1,0 +1,216 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpnkwqw3l0pyq"]
+
+[ext_resource type="Theme" uid="uid://br3nt6004jjqd" path="res://addons/table_component/TableTheme.tres" id="1_lnywm"]
+[ext_resource type="Script" path="res://addons/table_component/Scenes/TableComponent.gd" id="2_6agl8"]
+[ext_resource type="PackedScene" uid="uid://bf2dr818yhjmu" path="res://addons/table_component/Scenes/Loading.tscn" id="3_mjmrb"]
+[ext_resource type="Texture2D" uid="uid://cyuume1hwrf63" path="res://addons/table_component/Icons/arrow-right.png" id="4_vplfb"]
+[ext_resource type="Texture2D" uid="uid://cm6mj13aurn1w" path="res://addons/table_component/Icons/arrow-right-disable.png" id="5_wd57d"]
+[ext_resource type="Script" path="res://addons/table_component/Scripts/DefaultTextureButton.gd" id="6_7pohy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bgsdb"]
+bg_color = Color(0.0468561, 0.0680474, 0.0827792, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sstwg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_right = 1
+
+[node name="TableComponent" type="VBoxContainer"]
+custom_minimum_size = Vector2(0, 750)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lnywm")
+theme_override_constants/separation = 16
+script = ExtResource("2_6agl8")
+rows = Array[Array]([])
+
+[node name="Table" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 630)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="Header" type="HBoxContainer" parent="Table"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Table/Header" groups=["static"]]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"HeaderLabel"
+
+[node name="Label2" type="Label" parent="Table/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderLabel"
+text = "PLAYER	"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Label3" type="Label" parent="Table/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderLabel"
+text = "points"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Label5" type="Label" parent="Table/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderLabel"
+text = "Reward 1"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Label6" type="Label" parent="Table/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderLabel"
+text = "Reward 2"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Label8" type="Label" parent="Table/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"HeaderLabel"
+text = "Reward 3
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Label9" type="Label" parent="Table/Header"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"HeaderLastLabel"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="UILoading" parent="Table" instance=ExtResource("3_mjmrb")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme = null
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Table"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Rows" type="VBoxContainer" parent="Table/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="SearchNotFound" type="Control" parent="Table/ScrollContainer/Rows" groups=["static"]]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Table/ScrollContainer/Rows/SearchNotFound"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "No matching value found."
+
+[node name="UILoading" parent="." instance=ExtResource("3_mjmrb")]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme = null
+
+[node name="Pagination" type="Panel" parent="."]
+custom_minimum_size = Vector2(340, 60)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = SubResource("StyleBoxFlat_bgsdb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Pagination"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -25.0
+offset_right = 160.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Previous" type="Control" parent="Pagination/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TableTextureButton" type="TextureButton" parent="Pagination/HBoxContainer/Previous"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_vplfb")
+texture_disabled = ExtResource("5_wd57d")
+ignore_texture_size = true
+stretch_mode = 0
+flip_h = true
+script = ExtResource("6_7pohy")
+
+[node name="Pages" type="Label" parent="Pagination/HBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_sstwg")
+text = "10 / 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Next" type="Control" parent="Pagination/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="TableTextureButton" type="TextureButton" parent="Pagination/HBoxContainer/Next"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_vplfb")
+texture_disabled = ExtResource("5_wd57d")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_7pohy")
+
+[connection signal="pressed" from="Pagination/HBoxContainer/Previous/TableTextureButton" to="." method="_on_previous_pressed"]
+[connection signal="pressed" from="Pagination/HBoxContainer/Next/TableTextureButton" to="." method="_on_next_pressed"]

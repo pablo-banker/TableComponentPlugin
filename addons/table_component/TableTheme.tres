@@ -1,0 +1,50 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://br3nt6004jjqd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0xvfv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_afglw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x5gon"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apcly"]
+bg_color = Color(1, 1, 1, 0.108)
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jvqlh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h6seh"]
+bg_color = Color(0.987, 0.987, 0.987, 0.216)
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_501ko"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mc2vp"]
+
+[resource]
+HeaderLabel/base_type = &"Label"
+HeaderLabel/styles/normal = SubResource("StyleBoxFlat_0xvfv")
+HeaderLastLabel/base_type = &"Label"
+HeaderLastLabel/styles/normal = SubResource("StyleBoxFlat_afglw")
+RowButton/base_type = &"Button"
+RowButton/styles/focus = SubResource("StyleBoxEmpty_x5gon")
+RowButton/styles/hover = SubResource("StyleBoxFlat_apcly")
+RowButton/styles/normal = SubResource("StyleBoxEmpty_jvqlh")
+RowButton/styles/pressed = SubResource("StyleBoxFlat_h6seh")
+RowLabel/base_type = &"Label"
+RowLabel/styles/normal = SubResource("StyleBoxFlat_501ko")
+RowLastLabel/base_type = &"Label"
+RowLastLabel/styles/normal = SubResource("StyleBoxEmpty_mc2vp")

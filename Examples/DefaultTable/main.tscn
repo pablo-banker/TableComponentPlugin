@@ -1,0 +1,96 @@
+[gd_scene load_steps=8 format=3 uid="uid://cne2um40mhh5u"]
+
+[ext_resource type="PackedScene" uid="uid://bpnkwqw3l0pyq" path="res://addons/table_component/Scenes/TableComponent.tscn" id="1_eibe6"]
+[ext_resource type="Script" path="res://Examples/DefaultTable/main.gd" id="1_h7mud"]
+[ext_resource type="Script" path="res://addons/table_component/Entities/TableEntity.gd" id="2_2gb7t"]
+
+[sub_resource type="Resource" id="Resource_ecm25"]
+script = ExtResource("2_2gb7t")
+id = "name"
+title = "Name"
+width = 0.0
+
+[sub_resource type="Resource" id="Resource_e2tv2"]
+script = ExtResource("2_2gb7t")
+id = ""
+title = "Age"
+width = 0.0
+
+[sub_resource type="Resource" id="Resource_hte8n"]
+script = ExtResource("2_2gb7t")
+id = ""
+title = "Feelings"
+width = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ac7t2"]
+bg_color = Color(0.370364, 0.370365, 0.370364, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 15.0
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h7mud")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TableComponent" parent="." instance=ExtResource("1_eibe6")]
+custom_minimum_size = Vector2(1700, 750)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -850.0
+offset_top = -842.0
+offset_right = 850.0
+offset_bottom = -40.0
+grow_vertical = 0
+pagination = true
+header = Array[ExtResource("2_2gb7t")]([SubResource("Resource_ecm25"), SubResource("Resource_e2tv2"), SubResource("Resource_hte8n")])
+rows = Array[Array]([["David", 10, "Great"], ["John", 21, "Happy"]])
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+offset_left = 112.0
+offset_top = 80.0
+offset_right = 515.0
+offset_bottom = 158.0
+theme_override_font_sizes/font_size = 56
+text = "Normal Table"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Search" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 1165.0
+offset_top = 98.0
+offset_right = 1792.0
+offset_bottom = 156.0
+theme_override_colors/font_placeholder_color = Color(0.753984, 0.753984, 0.753984, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_ac7t2")
+placeholder_text = "Search (by name)"
+
+[connection signal="on_next_page" from="TableComponent" to="." method="_on_table_component_on_next_page"]
+[connection signal="on_previous_page" from="TableComponent" to="." method="_on_table_component_on_previous_page"]
+[connection signal="text_changed" from="Search" to="." method="_on_search_text_changed"]

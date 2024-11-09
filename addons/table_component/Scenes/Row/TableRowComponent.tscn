@@ -1,0 +1,104 @@
+[gd_scene load_steps=3 format=3 uid="uid://dliqhmapag8gg"]
+
+[ext_resource type="Script" path="res://addons/table_component/Scenes/Row/TableRowComponent.gd" id="1_7hjwf"]
+[ext_resource type="Theme" uid="uid://br3nt6004jjqd" path="res://addons/table_component/TableTheme.tres" id="1_a8hog"]
+
+[node name="TableRowComponent" type="Control"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1041.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+theme = ExtResource("1_a8hog")
+script = ExtResource("1_7hjwf")
+
+[node name="Values" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Position" type="Label" parent="Values" groups=["static"]]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"RowLabel"
+text = "#1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Label2" type="Label" parent="Values"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"RowLabel"
+text = "pcbanker"
+horizontal_alignment = 1
+vertical_alignment = 2
+uppercase = true
+
+[node name="Label3" type="Label" parent="Values"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"RowLabel"
+text = "10000"
+horizontal_alignment = 1
+vertical_alignment = 2
+uppercase = true
+
+[node name="Label5" type="Label" parent="Values"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"RowLabel"
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 2
+uppercase = true
+
+[node name="Label6" type="Label" parent="Values"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"RowLabel"
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 2
+uppercase = true
+
+[node name="Label7" type="Label" parent="Values"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_type_variation = &"RowLabel"
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 2
+uppercase = true
+
+[node name="Label8" type="Label" parent="Values"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"RowLastLabel"
+text = "..."
+horizontal_alignment = 1
+vertical_alignment = 2
+uppercase = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_a8hog")
+theme_type_variation = &"RowButton"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
